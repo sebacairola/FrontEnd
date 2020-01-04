@@ -1,0 +1,38 @@
+body, html{
+  width: 100%;
+  height: 100%;
+  font-family: 'Oswald', sans-serif;
+  background: url("../../CSS/images/header.jpg"), no-repeat center center fixed;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+h1{
+  font-size: 3rem;
+  color: #e2dbdb;
+}
+
+.btn{
+  font-weight: 700;
+  border-radius: 300px;
+}
+
+.btn-primary{
+  background-color: #F05F44;
+  border-color: #F05F44;
+  transition: all 2s ease 0.2s;
+}
+
+.btn-primary:hover{
+  background-color: #ee4b08;
+  border-color: #ee4b08;
+  transform: scale(1.1);
+}
+
+.btn-xl{
+  padding: 1rem 2rem;
+}
+
+.buffer{
+  height: 5rem;
+}

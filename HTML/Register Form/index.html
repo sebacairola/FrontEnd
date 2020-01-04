@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Form</title>
+</head>
+<body>
+	<!-- Use GET, not POST  -->
+	<form method="GET">
+		<!-- Tip: A label can be bound to an element either by using the "for" attribute, or by placing the element inside the <label> element -->
+		<label>
+			First Name: <input type="textbox" name="firstname">
+		</label><br>
+		<label>
+			Last Name: <input type="textbox" name="lastname">	
+		</label><br>
+		<label>
+			Email: <input type="mail" name="email" required="yes">	
+		</label><br>
+		<label>
+			Password: <input type="password" name="password" minlength="5" maxlength="10">	
+		</label><br>
+		<label>
+			Birthday: <input type="date" name="birthday">	
+		</label> <br>
+		Gender: <br>
+		<label for="male_radio">Male</label>
+		<input id="male_radio" type="radio" name="gender" value="male" checked="yes"> <br>
+		<label for="female_radio">Female</label>
+		<input id="female_radio" type="radio" name="gender" value="female"> <br>
+		
+		Pets: <br>
+		<label for="cat_checkbox">
+			<input id="cat_checkbox" type="checkbox" name="pet1" value="cat"> Cat
+		</label> <br>
+		<label for="dog_checkbox">
+			<input id="dog_checkbox" type="checkbox" name="pet2" value="dog"> Dog 	
+		</label> <br>
+		
+		Cars: <br>
+		<select name="car">
+			<option value="volvo">Volvo</option>
+			<option value="audi">Audi</option>
+		</select> <br>
+		<input type="submit" value="Register" name="">
+		<input type="reset" value="Reset" name="">
+	</form>
+</body>
+</html>
