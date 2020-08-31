@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos Generales */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li{
+    line-height: 3rem;
+    position: relative;
+    width: 150px;
+}
+
+nav li ul{
+    position: absolute;    
+}
+
+nav a {
+    text-decoration: none;
+    color: #ddd;
+    padding: 0 2.5em;
+    display: block;
+    transition: .4s;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+/* Primer Nivel */
+nav > ul {
+    background-color: #333;
+    display: table;
+}
+
+nav > ul > li{
+    float: left;
+}
+
+/* Segundo Nivel */
+nav li li{
+    background-color: #222;
+    width: 200px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .4s;    
+}
+
+nav li:hover > ul > li{
+    max-height: 500px;
+    overflow: visible;
+}
+
+nav > ul > li > ul{
+    top: 100%;
+}
+
+/* Tercer Nivel */
+nav > ul > li > ul > li > ul {
+    left: 100%;
+    top: 0;
+}
