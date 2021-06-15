@@ -1,0 +1,65 @@
+
+/* @group Filtros */
+.filtros{
+  margin-top: 2rem;
+}
+#form_filtros{
+  width: 190px;
+  margin: 0 auto;
+  } 
+#form_filtros #categorias-notas{
+  width: 240px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 3;
+  position: absolute;
+  font-size: 17px;
+  line-height: 1em;
+  color: #202020;
+}
+#form_filtros .seleccionada::before{
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 9px;
+  background-image: url('../imgs/arrow-grey.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  top: 16px;
+  right: 12px;
+}
+#form_filtros .seleccionada{
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 130%;
+}
+#form_filtros .seleccionada span{
+  font-size: 2rem;
+  color: #333;
+}
+#form_filtros ul{
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: max-height .7s, opacity .7s;-o-transition: max-height .7s, opacity .7s;transition: max-height .7s, opacity .7s;
+}
+#form_filtros ul.show{
+  max-height: 300px;
+  overflow: auto;
+  opacity: 1;
+  pointer-events: all;
+}
+#form_filtros li a{
+  color: #333;
+  text-decoration: none;
+  padding: 10px 10px 10px 10px;
+  width: 190px;
+  display: block;
+  cursor: pointer;
+}
+/* @end */

@@ -1,0 +1,72 @@
+
+
+html {
+    font: 62.5% 'Open Sans',Helvetica,Arial,sans-serif;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 10px!important;
+}
+body {
+    font-size: 100%!important;
+    line-height: 1!important;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif!important;
+}
+a, abbr, acronym, address, applet, b, big, blockquote, body, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: 0 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[class*=" col-"], [class^=col-] {
+    display: inline-block;
+    float: none;
+    font-size: 1rem;
+    position: relative;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 15px;
+    vertical-align: top;
+    text-align: left;
+}
+a, ins {
+    text-decoration: none;
+}
+.w-1120.row {
+    max-width: 1120px;
+}
+.row {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0;
+    text-align: center;
+}
+
+@media only screen and (min-width: 767px){
+    .col-12-6 {
+        width: 50%;
+    }
+    [class*=" col-"], [class^=col-] {
+        padding: 0 15px;
+    }
+    .col-12-4 {
+        width: 33.33333333333333%;
+    }
+}
+
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
