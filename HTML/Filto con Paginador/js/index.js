@@ -238,145 +238,145 @@ function init(){
 
 function setArticles(categoria) {
 
-    let arrayContainer = [];
+  let arrayContainer = [];
 
-    pokemons.forEach(function(articulo){
+  pokemons.forEach(function(articulo){
 
-        for (let categoriaArticulo of articulo.categorias){
+    for (let categoriaArticulo of articulo.categorias){
 
-            if ( categoriaArticulo === categoria ){
-                arrayContainer.push(articulo);
-            }
-        }
+      if ( categoriaArticulo === categoria ){
+          arrayContainer.push(articulo);
+      }
+    }
+  });
 
-    });
-
-    allElementsOfCategory = arrayContainer;    
+  allElementsOfCategory = arrayContainer;    
 }
 
 function renderPaginator(){
 
-    let cantElementsOfCategory = allElementsOfCategory.length;
-    let html = "";
+  let cantElementsOfCategory = allElementsOfCategory.length;
+  let html = "";
 
-    if (cantElementsOfCategory <= CANT_ARTICLES_PER_PAGE) {
-        // hide Paginator
-        $(elementos.paginador).hide();
-    } else {
-        // Show Paginator
-        $(elementos.paginador).show();
+  if (cantElementsOfCategory <= CANT_ARTICLES_PER_PAGE) {
+    // hide Paginator
+    $(elementos.paginador).hide();
+  } else {
+    // Show Paginator
+    $(elementos.paginador).show();
 
-        let numberOfItems = Math.ceil(cantElementsOfCategory / CANT_ARTICLES_PER_PAGE) + 1;
+    let numberOfItems = Math.ceil(cantElementsOfCategory / CANT_ARTICLES_PER_PAGE) + 1;
 
-        for (var i = 1; i < numberOfItems; i++) {
-            if (i === 1) {
-                html += '<li><a href="#" data-number=' + i + ' class="active">' + i + '</a></li>';
-            } else {
-                html += '<li><a href="#" data-number=' + i + '>' + i + '</a></li>';
-            }
+    for (var i = 1; i < numberOfItems; i++) {
+      if (i === 1) {
+        html += '<li><a href="#" data-number=' + i + ' class="active">' + i + '</a></li>';
+      } else {
+        html += '<li><a href="#" data-number=' + i + '>' + i + '</a></li>';
+      }
 
-            $(elementos.bttnContainer).html(html);
-        }
+      $(elementos.bttnContainer).html(html);
     }
+  }
 }
 
 function renderPage(pageNumber){
 
-    let selectedArticles = sliceArray(allElementsOfCategory, pageNumber);
+  let selectedArticles = sliceArray(allElementsOfCategory, pageNumber);
 
-    let html = "";
+  let html = "";
 
-    selectedArticles.forEach(function (articulo) {
+  selectedArticles.forEach(function (articulo) {
 
-        html += "<article class='col-12-4' data-category=" + articulo.categorias + " >";
-        html += "<div class='box-interna'>";
-        html += "<div class='figure'>";
-        html += "<img src=" + articulo.urlImagen + ">";
-        html += "</div>";
-        html += "<div class='description'>";
-        html += "<div class='text'>";
-        html += "<h3>" + articulo.titulo + "</h3>";
-        html += "<p>" + articulo.subTitulo + "</p>";
-        html += "</div>";
-        html += "<div class='action'>";
-        html += "<a href='" + articulo.urlEnlace + "'>" + articulo.textoEnlace + "</a>";
-        html += "</div>";
-        html += "</div >";
-        html += "</div > ";
-        html += "</article >";
+    html += "<article class='col-12-4' data-category=" + articulo.categorias + " >";
+    html += "<div class='box-interna'>";
+    html += "<div class='figure'>";
+    html += "<img src=" + articulo.urlImagen + ">";
+    html += "</div>";
+    html += "<div class='description'>";
+    html += "<div class='text'>";
+    html += "<h3>" + articulo.titulo + "</h3>";
+    html += "<p>" + articulo.subTitulo + "</p>";
+    html += "</div>";
+    html += "<div class='action'>";
+    html += "<a href='" + articulo.urlEnlace + "'>" + articulo.textoEnlace + "</a>";
+    html += "</div>";
+    html += "</div >";
+    html += "</div > ";
+    html += "</article >";
+  });
 
-    });
-
-    elementos.contendorNotas.innerHTML = html;
+  elementos.contendorNotas.innerHTML = html;
 }
 
 // Slice Array
 function sliceArray(articulos, from) {    
-    return articulos.slice((from - 1) * CANT_ARTICLES_PER_PAGE, from * CANT_ARTICLES_PER_PAGE);
+  return articulos.slice((from - 1) * CANT_ARTICLES_PER_PAGE, from * CANT_ARTICLES_PER_PAGE);
 }
 
 // Events
 $(elementos.filter).on("click", "li a", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    let $value = $(this).data("id");
+  e.preventDefault();
+  e.stopPropagation();
+  let $value = $(this).data("id");
 
-    $(elementos.filterSeleccionadoSpan).text($(this).text());
-    $(this).closest('ul').removeClass("show");
+  $(elementos.filterSeleccionadoSpan).text($(this).text());
+  $(this).closest('ul').removeClass("show");
 
-    setArticles($value);
-    renderPage(1);
-    renderPaginator();   
-    hideArrows(1); 
+  setArticles($value);
+  renderPage(1);
+  renderPaginator();   
+  hideArrows(1); 
 });
 
 $(elementos.filterSeleccionado).on("click", function (e) {
-    e.stopPropagation();
-    $(".filtro").toggleClass("show");
+  e.stopPropagation();
+  $(".filtro").toggleClass("show");
 });
 
 $(elementos.paginador).on("click", "[data-number]", function (e) {
-    e.preventDefault();
-    let $this = $(this);
-    let fromNumber = parseInt($this.data("number"));
-    activatePaginatorItem(fromNumber);
+  e.preventDefault();
+  let $this = $(this);
+  let fromNumber = parseInt($this.data("number"));
+  activatePaginatorItem(fromNumber);
 });
 
 $(elementos.paginador).on("click", "[data-comp=prev]", function (e) {
-    e.preventDefault();
-    let activeNumber = numberActiveBttn() - 1;    
-    activatePaginatorItem(activeNumber);
+  e.preventDefault();
+  let activeNumber = numberActiveBttn() - 1;    
+  activatePaginatorItem(activeNumber);
 });
 
 $(elementos.paginador).on("click", "[data-comp=next]", function (e) {
-    e.preventDefault();
-    let activeNumber = numberActiveBttn() + 1;
-    activatePaginatorItem(activeNumber);
+  e.preventDefault();
+  let activeNumber = numberActiveBttn() + 1;
+  activatePaginatorItem(activeNumber);
 });
 
 
 function numberActiveBttn() {
-    let res;
-    $(elementos.bttnContainer).find("a").each(function (index) {
-        var $elem = $(this);
-        if ($elem.hasClass("active")) {
-            res = $elem.data("number");
-        };
-    });
-    return res;
+  let res;
+
+  $(elementos.bttnContainer).find("a").each(function (index) {
+    var $elem = $(this);
+    if ($elem.hasClass("active")) {
+      res = $elem.data("number");
+    };
+  });
+
+  return res;
 }
 
 function hideArrows(fromNumber) {
-    let cantElementsOfCategory = allElementsOfCategory.length;
-    fromNumber >= Math.ceil(cantElementsOfCategory / CANT_ARTICLES_PER_PAGE) ? $("[data-comp=next]").hide() : $("[data-comp=next]").show();
-    fromNumber <= 1 ? $("[data-comp=prev]").hide() : $("[data-comp=prev]").show();
+  let cantElementsOfCategory = allElementsOfCategory.length;
+  fromNumber >= Math.ceil(cantElementsOfCategory / CANT_ARTICLES_PER_PAGE) ? $("[data-comp=next]").hide() : $("[data-comp=next]").show();
+  fromNumber <= 1 ? $("[data-comp=prev]").hide() : $("[data-comp=prev]").show();
 }
 
 function activatePaginatorItem(activeNumber){
-    renderPage(activeNumber);
-    $("[data-number]").removeClass("active");
-    $("[data-number=" + activeNumber + "]").addClass("active");
-    hideArrows(activeNumber);
+  renderPage(activeNumber);
+  $("[data-number]").removeClass("active");
+  $("[data-number=" + activeNumber + "]").addClass("active");
+  hideArrows(activeNumber);
 }
 
 init();
