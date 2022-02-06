@@ -1,4 +1,4 @@
-const notas = [        
+const pokemons = [        
     {   
         "titulo": "Bulbasaur",
         "subTitulo": "#001",
@@ -240,7 +240,7 @@ function setArticles(categoria) {
 
     let arrayContainer = [];
 
-    notas.forEach(function(articulo){
+    pokemons.forEach(function(articulo){
 
         for (let categoriaArticulo of articulo.categorias){
 
